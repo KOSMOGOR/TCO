@@ -160,6 +160,18 @@ def news_delete(id):
     return redirect('/')
 
 
+@app.route('/roles')
+@login_required
+def add_news():
+    return render_template('roles_and_instructions.html')
+
+
+@app.route('/degrad')
+@login_required
+def add_news():
+    return render_template('degrad.html')
+
+
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
