@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e1f8e0e-b2f0-42a2-9d64-cb691f8f9247" name="Default Changelist" comment="" />
+    <list default="true" id="4e1f8e0e-b2f0-42a2-9d64-cb691f8f9247" name="Default Changelist" comment="big fucking commit">
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,29 +69,45 @@
       <option name="presentableId" value="Default" />
       <updated>1617785435309</updated>
     </task>
+    <task id="LOCAL-00001" summary="big fucking commit">
+      <created>1617799413520</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617799413520</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="big fucking commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="big fucking commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1060" y="455" key="FileChooserDialogImpl" timestamp="1617785652537">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1617785652537" />
-    <state width="2539" height="390" key="GridCell.Tab.0.bottom" timestamp="1617799331097">
+    <state width="2539" height="390" key="GridCell.Tab.0.bottom" timestamp="1617799556341">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="390" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1617799331097" />
-    <state width="2539" height="390" key="GridCell.Tab.0.center" timestamp="1617799331097">
+    <state width="2539" height="390" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1617799556341" />
+    <state width="2539" height="390" key="GridCell.Tab.0.center" timestamp="1617799556341">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="390" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1617799331097" />
-    <state width="2539" height="390" key="GridCell.Tab.0.left" timestamp="1617799331097">
+    <state width="2539" height="390" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1617799556341" />
+    <state width="2539" height="390" key="GridCell.Tab.0.left" timestamp="1617799556341">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="390" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1617799331097" />
-    <state width="2539" height="390" key="GridCell.Tab.0.right" timestamp="1617799331097">
+    <state width="2539" height="390" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1617799556341" />
+    <state width="2539" height="390" key="GridCell.Tab.0.right" timestamp="1617799556341">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="390" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1617799331097" />
+    <state width="2539" height="390" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1617799556341" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1617799418521">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1617799418521" />
     <state x="1110" y="491" key="svn.repositoryBrowser" timestamp="1617785467266">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

@@ -1,11 +1,11 @@
 from flask import Flask, render_template, redirect, make_response, session, request, jsonify
 from werkzeug.exceptions import abort
-from class_work.data import db_session, news_api
-from class_work.data.login_form import LoginForm
-from class_work.data.users import User
-from class_work.data.news import News
-from class_work.forms.news import NewsForm
-from class_work.forms.user import RegisterForm
+from data import db_session, news_api
+from data.login_form import LoginForm
+from data.users import User
+from data.news import News
+from forms.news import NewsForm
+from forms.user import RegisterForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 app = Flask(__name__)
