@@ -177,5 +177,10 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
+@app.errorhandler(401)
+def not_authorized(error):
+    return make_response('Только авторизированные пользователи могут быть здесь!', 401)
+
+
 if __name__ == '__main__':
     main()
