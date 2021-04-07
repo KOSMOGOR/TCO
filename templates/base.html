@@ -1,50 +1,53 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <title>Tenno Comunity Outcast</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top main-menu">
-        {% if current_user.is_authenticated %}
-  <a href="/logout" class="navbar-brand order-md-last order-0">{{ current_user.name }}</a>
-{% else %}
-    <p>
-        <a class="btn btn-primary navbar-brand order-md-last order-0" href="/register">Зарегистрироваться</a>
-        <a class="btn btn-success" href="/login">Войти</a>
-    </p>
-{% endif %}
-  <div class="navbar-collapse collapse" id="mainNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item homeLink">
-        <a class="nav-link" href="/">
-          <span aria-hidden="true" class=" fa fa-spacer-right fa-home"></span>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">Новости</a>
-      </li>
-        <li class="nav-item ">
-        <a class="nav-link" href="#">TCO'шный деград</a>
-      </li>
-        <li class="nav-item ">
-        <a class="nav-link" href="#">Роли и инструкции</a>
-      </li>
-    </ul>
-  </div>
-        <a class="navbar-brand order-md-first" href="#">Tenno Community Outcast</a>
-</nav>
 
-</header>
-<!-- Begin page content -->
-<main role="main" class="container">
-    {% block content %}{% endblock %}
-</main>
+<head>
+    <title>Tenno Comunity Outcast</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top main-menu">
+            {% if current_user.is_authenticated %}
+            <a href="/logout" class="navbar-brand order-md-last order-0">{{ current_user.name }}</a>
+            {% else %}
+            <p class="order-md-last order-0">
+                <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
+                <a class="btn btn-success" href="/login">Войти</a>
+            </p>
+            {% endif %}
+            <div class="navbar-collapse collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item homeLink">
+                        <a class="nav-link" href="/">
+                            <span aria-hidden="true" class=" fa fa-spacer-right fa-home"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Новости</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">TCO'шный деград</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Роли и инструкции</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand order-md-first" href="#">Tenno Community Outcast</a>
+        </nav>
+
+    </header>
+    <!-- Begin page content -->
+    <main role="main" class="container">
+        {% block content %}{% endblock %}
+    </main>
 </body>
+
 </html>
