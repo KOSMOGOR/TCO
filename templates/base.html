@@ -13,11 +13,11 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top main-menu">
+        <nav class="navbar navbar-expand-md navbar-light bg-light main-menu">
             {% if current_user.is_authenticated %}
             <a href="/logout" class="navbar-brand order-md-last order-0">{{ current_user.name }}</a>
             {% else %}
-            <p class="order-md-last order-0">
+            <p class="order-md-last order-0" style="margin-bottom: 0;">
                 <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
                 <a class="btn btn-success" href="/login">Войти</a>
             </p>
