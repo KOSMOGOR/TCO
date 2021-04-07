@@ -160,15 +160,15 @@ def news_delete(id):
     return redirect('/')
 
 
-@app.route('/roles')
+@app.route('/dsroles')
 @login_required
-def add_news():
+def roles():
     return render_template('roles_and_instructions.html')
 
 
-@app.route('/degrad')
+@app.route('/tcodergad')
 @login_required
-def add_news():
+def degrad():
     return render_template('degrad.html')
 
 
