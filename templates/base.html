@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Новости</a>
+                        <a class="nav-link" href="/" id="news">Новости</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="/tcodergad">TCO'шный деград</a>
@@ -40,7 +40,7 @@
                     </li>
                 </ul>
             </div>
-            <a class="navbar-brand order-md-first" href="#">Tenno Community Outcast</a>
+            <a class="navbar-brand order-md-first" href="/">Tenno Community Outcast</a>
         </nav>
 
     </header>
@@ -48,6 +48,7 @@
     <main role="main" class="container">
         {% block content %}{% endblock %}
     </main>
+<script>document.getElementById('news').setAttribute('href', '/')</script>
 </body>
 
 </html>

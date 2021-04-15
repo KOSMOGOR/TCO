@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Роли и инструкции</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
-<body>
 
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light main-menu">
+            {% if current_user.is_authenticated %}
+            <a href="/logout" class="navbar-brand order-md-last order-0">{{ current_user.name }}</a>
+            {% else %}
+            <p class="order-md-last order-0" style="margin-bottom: 0;">
+                <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
+                <a class="btn btn-success" href="/login">Войти</a>
+            </p>
+            {% endif %}
+            <div class="navbar-collapse collapse" id="mainNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item homeLink">
+                        <a class="nav-link" href="/">
+                            <span aria-hidden="true" class=" fa fa-spacer-right fa-home"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/" id="news">Новости</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/tcodergad">TCO'шный деград</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/dsroles">Роли и инструкции</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand order-md-first" href="/">Tenno Community Outcast</a>
+        </nav>
+
+    </header>
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne" style="margin-top: 20px; border-top: 1px solid rgb(216 216 216)">
+      <h5 class="mb-0">
+        <button class="btn" style="background-color: rgb(247 247 247);
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h5 style="color: #4e0791">Outcaster</h5> <!--Менять-->
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+          <h6>Информация</h6>
+          <a>Пустая роль для изменения цвета ника. Показывает, что Вы истенный Outcaster</a>  <!--Менять-->
+          <h6 style="margin-top: 15px;">Возможности</h6>
+          <a>Возможности те же, что и обычного пользователя</a> <!--Менять-->
+      </div>
+    </div>
+  </div>
+</div>
+<script>document.getElementById('news').setAttribute('href', '/')</script>
 </body>
 </html>
