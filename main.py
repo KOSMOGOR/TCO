@@ -8,6 +8,10 @@ from forms.news import NewsForm
 from forms.user import RegisterForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
+import json
+with open('db/roles.json', encoding='UTF-8') as f:
+    dsroles = json.load(f)['roles']
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
@@ -163,7 +167,7 @@ def news_delete(id):
 @app.route('/dsroles')
 @login_required
 def roles():
-    return render_template('roles_and_instructions.html')
+    return render_template('roles_and_instructions.html', roles=dsroles)
 
 
 @app.route('/tcodergad')

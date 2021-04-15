@@ -44,25 +44,28 @@
 
     </header>
 <div id="accordion">
-  <div class="card">
-    <div class="card-header" id="headingOne" style="margin-top: 20px; border-top: 1px solid rgb(216 216 216)">
+{% for role in roles%}
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header" id="headingOne" style="border-top: 1px solid rgb(216 216 216)">
       <h5 class="mb-0">
         <button class="btn" style="background-color: rgb(247 247 247);
-        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <h5 style="color: #4e0791">Outcaster</h5> <!--Менять-->
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-toggle="collapse" data-target="#collapseOne{{role.id}}" aria-expanded="true" aria-controls="collapseOne">
+            <h5 style="color: {{role.color}}">{{role.name}}</h5> <!--Менять-->
         </button>
       </h5>
     </div>
-
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne{{role.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
           <h6>Информация</h6>
-          <a>Пустая роль для изменения цвета ника. Показывает, что Вы истенный Outcaster</a>  <!--Менять-->
+          <a>{{role.description}}</a>  <!--Менять-->
           <h6 style="margin-top: 15px;">Возможности</h6>
-          <a>Возможности те же, что и обычного пользователя</a> <!--Менять-->
+            {% for op in role.opportunity %}
+                <a>{{op}}</a><br> <!--Менять-->
+            {% endfor %}
       </div>
     </div>
   </div>
+{% endfor %}
 </div>
 <script>document.getElementById('news').setAttribute('href', '/')</script>
 </body>
