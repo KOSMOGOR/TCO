@@ -9,7 +9,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
-
+    <style>.thumb-wrap {
+  position: relative;
+  padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+  height: 0;
+  overflow: hidden;
+}
+.thumb-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+  outline-width: 0;
+</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-light bg-light main-menu">
@@ -44,11 +58,16 @@
 
     </header>
 <script>document.getElementById('news').setAttribute('href', '/')</script>
-<div style="text-align: center; margin-top: 20px;">
-    <h5>Новый видос</h5>
-        <iframe width="560" height="315" src="https://youtube.com/embed/oB4yg1iFp14" frameborder="0" allowfullscreen></iframe>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+<div class="thumb-wrap" style="text-align: center; margin-top: 20px;}">
+    <h5>Новый выпуск TCO'шного отряда</h5>
+        <iframe src="https://youtube.com/embed/oB4yg1iFp14" frameborder="0" allowfullscreen></iframe>
 </div>
-
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
