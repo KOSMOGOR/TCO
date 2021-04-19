@@ -9,7 +9,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
-    <style>.thumb-wrap {
+<style>
+.thumb-wrap {
   position: relative;
   padding-bottom: 56.25%; /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
   height: 0;
@@ -23,6 +24,7 @@
   height: 100%;
   border-width: 0;
   outline-width: 0;
+}
 </style>
 <body>
     <header>
@@ -57,16 +59,14 @@
         </nav>
 
     </header>
-<script>document.getElementById('news').setAttribute('href', '/')</script>
     <div class="container">
-        <div class="row">
+        {% for video in videos %}
             <div class="col-12">
-<div class="thumb-wrap" style="text-align: center; margin-top: 20px;}">
-    <h5>Новый выпуск TCO'шного отряда</h5>
-        <iframe src="https://youtube.com/embed/oB4yg1iFp14" frameborder="0" allowfullscreen></iframe>
-</div>
+                <div class="thumb-wrap" style="text-align: center; margin-top: 20px;">
+                    <iframe src="{{video}}" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
 
 </body>

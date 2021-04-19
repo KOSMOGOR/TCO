@@ -4,13 +4,18 @@ from data import db_session, news_api
 from data.login_form import LoginForm
 from data.users import User
 from data.news import News
+from data.yt_src import Yt
 from forms.news import NewsForm
 from forms.user import RegisterForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+import requests
+import xmltodict
+import datetime
 
 import json
 with open('db/roles.json', encoding='UTF-8') as f:
     dsroles = json.load(f)['roles']
+lastcheck = datetime.datetime.now()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -18,8 +23,22 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+def check_new_videos():
+    db_sess = db_session.create_session()
+    res = requests.get('https://www.youtube.com/feeds/videos.xml?channel_id=UC_yvFLQQcIrrQa3eSF7VsEw').text
+    d = dict(xmltodict.parse(res))['feed']['entry']
+    videos = [x.yt_id for x in db_sess.query(Yt)]
+    for i in d[::-1]:
+        link = dict(i)['id'].split(':')[-1]
+        if link not in videos:
+            video = Yt(yt_id=link)
+            db_sess.add(video)
+            db_sess.commit()
+
+
 def main():
     db_session.global_init("db/blogs.db")
+    check_new_videos()
     app.register_blueprint(news_api.blueprint)
     app.run()
 
@@ -173,7 +192,15 @@ def roles():
 @app.route('/tcodergad')
 @login_required
 def degrad():
-    return render_template('degrad.html')
+    global lastcheck
+    if ((datetime.datetime.now() - lastcheck).seconds) >= 60:
+        check_new_videos()
+        lastcheck = datetime.datetime.now()
+    db_sess = db_session.create_session()
+    res = requests.get('https://www.youtube.com/feeds/videos.xml?channel_id=UC_yvFLQQcIrrQa3eSF7VsEw').text
+    d = dict(xmltodict.parse(res))['feed']['entry']
+    videos = [f'https://www.youtube.com/embed/{x.yt_id}' for x in db_sess.query(Yt)[::-1]]
+    return render_template('degrad.html', videos=videos)
 
 
 @app.errorhandler(404)
