@@ -9,7 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
-
+<style>
+img {
+width: 300px;
+}
+</style>
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-light bg-light main-menu">
@@ -43,18 +47,18 @@
         </nav>
 
     </header>
-<div id="accordion">
+<h5 style="margin-top: 30px; margin-inline-start: 35px;">Роли</h5>
 {% for role in roles%}
   <div class="card" style="margin-top: 20px">
-    <div class="card-header" id="headingOne" style="border-top: 1px solid rgb(216 216 216)">
+    <div class="card-header" id="headingOne{{role.id}}" style="border-top: 1px solid rgb(216 216 216)">
       <h5 class="mb-0">
         <button class="btn" style="background-color: rgb(247 247 247);
-        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-toggle="collapse" data-target="#collapseOne{{role.id}}" aria-expanded="true" aria-controls="collapseOne">
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-toggle="collapse" data-target="#collapseOne{{role.id}}" aria-expanded="true" aria-controls="collapseOne{{role.id}}">
             <h5 style="color: {{role.color}}">{{role.name}}</h5> <!--Менять-->
         </button>
       </h5>
     </div>
-    <div id="collapseOne{{role.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne{{role.id}}" class="collapse" aria-labelledby="headingOne{{role.id}}" data-parent="#accordion">
       <div class="card-body">
           <h6>Информация</h6>
           <a>{{role.decription}}</a>  <!--Менять-->
@@ -66,6 +70,73 @@
     </div>
   </div>
 {% endfor %}
-</div>
+<h5 style="margin-top: 30px; margin-inline-start: 35px;">Инструкции</h5>
+  <div class="card" style="margin-top: 20px;">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn" data-toggle="collapse" style="background-color: rgb(247 247 247);
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <h5> Создание каналов </h5>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+    <a>Для того, чтобы создать канал, необходимо нажать на "плюсик" в разделе каналов.</a><br>
+      <img src="/static/img/channel_1.png" class="img-fluid" alt="Image not found"><br>
+      <a> Затем выбрать тип канала и его приватность.</a><br>
+      <img src="/static/img/channel_2.png" class="img-fluid" alt="Image not found"><br>
+      <a> Если Вы создаете приваный канал, то вам надо выбрать роль и/или участника сервера, у которого будет доступ.</a><br>
+      <img src="/static/img/channel_3.png">
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn" data-toggle="collapse" style="background-color: rgb(247 247 247);
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+            <h5>Управление участниками на сервере</h5>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseThree" class="collapse hide" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+       <a>У сильных ролей на сервере есть возможность управлять участниками на сервере.</a><br>
+          <a>Если нажать ПКМ по участнику севера, можно увидеть следуещее меню:</a><br>
+          <img src="/static/img/user_1.png" class="img-fluid" alt="Image not found"><br>
+          <a>Отключение звука/микрофона на сервере применяется к участнику. (Т.е. данный участник либо не будет слышать всех на сервере, либо его никто не будет слышать)</a><br>
+          <a>Вкладка "Откючиться" отключает участника от голосового канала.</a><br>
+          <a>Чтобы дать участнику роль, наведите на вкладку "роль" и выберите роль, которую получит данный участник</a><br>
+          <a>Есть и второй способ назначения роли: выберите участника при помощи ЛКМ, затем нажмите на "плюсик" и выберите роль, которую хотите добавить.</a><br>
+          <img src="/static/img/user_3.png" class="img-fluid" alt="Image not found"><br>
+          <a>Для перемещания участника между голосовыми каналами существует также 2 способа. Первый: в меню, вызываемым через ПКМ выбрать "Переместить в" и название канала.</a><br>
+          <img src="/static/img/user_2.png" class="img-fluid" alt="Image not found"><br>
+          <a>Второй способ: зажать ЛКМ на участнике и перетащить его в другой канал. Канал, в который будет перемещён участник будет обведён зелёной рамкой.</a><br>
+          <img src="/static/img/user_4.png" class="img-fluid" alt="Image not found"><br>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 20px">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn" data-toggle="collapse" style="background-color: rgb(247 247 247);
+        box-shadow: 0 0 0 0.2rem rgb(247 247 247);" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          <h5>Просмотр "Журнала Аудита" (Логов)</h5>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseFour" class="collapse hide" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+       <a>В левом верхнем углу нажмите на название сервера, затем откройте настройки.</a><br>
+          <img src="/static/img/log_1.png" class="img-fluid" alt="Image not found"><br>
+         <a>В настройках выберете "Журнал Аудита"</a><br>
+          <img src="/static/img/log_2.png" class="img-fluid" alt="Image not found"><br>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

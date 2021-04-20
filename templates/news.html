@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    textarea {
+    height: 420px
+    }
+</style>
 <h1>Добавление новости</h1>
 <form action="" method="post">
     {{ form.hidden_tag() }}
