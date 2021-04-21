@@ -26,17 +26,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e1f8e0e-b2f0-42a2-9d64-cb691f8f9247" name="Default Changelist" comment="адаптивный деград + правки новостей">
-      <change afterPath="$PROJECT_DIR$/test1.py" afterDir="false" />
+    <list default="true" id="4e1f8e0e-b2f0-42a2-9d64-cb691f8f9247" name="Default Changelist" comment="изменение &quot;ролей и инструкций&quot;, &quot;новостей&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/blogs.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/blogs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/alien_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/alien_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/degrad.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/degrad.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/roles_and_instructions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/roles_and_instructions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/test1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.test1">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="TCO_website" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,8 +85,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="TCO_website" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test1" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -168,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618857612297</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="изменение &quot;ролей и инструкций&quot;, &quot;новостей&quot;">
+      <created>1618934034839</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1618934034840</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,7 +228,8 @@
     <MESSAGE value="обновление деграда, корреция role.json" />
     <MESSAGE value="новые таблицы + обнова деграда" />
     <MESSAGE value="адаптивный деград + правки новостей" />
-    <option name="LAST_COMMIT_MESSAGE" value="адаптивный деград + правки новостей" />
+    <MESSAGE value="изменение &quot;ролей и инструкций&quot;, &quot;новостей&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="изменение &quot;ролей и инструкций&quot;, &quot;новостей&quot;" />
   </component>
   <component name="WindowStateProjectService">
     <state x="92" y="92" width="2376" height="1216" key="DiffContextDialog" timestamp="1618896868837">
@@ -215,38 +240,38 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="455" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1618854615158" />
-    <state width="2539" height="387" key="GridCell.Tab.0.bottom" timestamp="1618933650635">
+    <state width="2539" height="387" key="GridCell.Tab.0.bottom" timestamp="1619023068357">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="387" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1618933650635" />
-    <state width="2539" height="387" key="GridCell.Tab.0.center" timestamp="1618933650635">
+    <state width="2539" height="387" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1619023068357" />
+    <state width="2539" height="387" key="GridCell.Tab.0.center" timestamp="1619023068356">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="387" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1618933650635" />
-    <state width="2539" height="387" key="GridCell.Tab.0.left" timestamp="1618933650635">
+    <state width="2539" height="387" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1619023068356" />
+    <state width="2539" height="387" key="GridCell.Tab.0.left" timestamp="1619023068356">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="387" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1618933650635" />
-    <state width="2539" height="387" key="GridCell.Tab.0.right" timestamp="1618933650635">
+    <state width="2539" height="387" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1619023068356" />
+    <state width="2539" height="387" key="GridCell.Tab.0.right" timestamp="1619023068357">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="387" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1618933650635" />
-    <state width="2539" height="482" key="GridCell.Tab.1.bottom" timestamp="1618897122192">
+    <state width="2539" height="387" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1619023068357" />
+    <state width="2539" height="482" key="GridCell.Tab.1.bottom" timestamp="1618934498883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="482" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1618897122192" />
-    <state width="2539" height="482" key="GridCell.Tab.1.center" timestamp="1618897122192">
+    <state width="2539" height="482" key="GridCell.Tab.1.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1618934498883" />
+    <state width="2539" height="482" key="GridCell.Tab.1.center" timestamp="1618934498883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="482" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1618897122192" />
-    <state width="2539" height="482" key="GridCell.Tab.1.left" timestamp="1618897122192">
+    <state width="2539" height="482" key="GridCell.Tab.1.center/0.0.2560.1400@0.0.2560.1400" timestamp="1618934498883" />
+    <state width="2539" height="482" key="GridCell.Tab.1.left" timestamp="1618934498883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="482" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1618897122192" />
-    <state width="2539" height="482" key="GridCell.Tab.1.right" timestamp="1618897122192">
+    <state width="2539" height="482" key="GridCell.Tab.1.left/0.0.2560.1400@0.0.2560.1400" timestamp="1618934498883" />
+    <state width="2539" height="482" key="GridCell.Tab.1.right" timestamp="1618934498883">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="482" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1618897122192" />
+    <state width="2539" height="482" key="GridCell.Tab.1.right/0.0.2560.1400@0.0.2560.1400" timestamp="1618934498883" />
     <state x="248" y="122" key="MergeDialog" timestamp="1618896078935">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -259,14 +284,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1067" y="416" key="VCS.ChangeListViewerDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1617803632432" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1618857615509">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1619022214599">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1618857615509" />
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618896197731">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619022214599" />
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619022217460">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400@0.0.2560.1400" timestamp="1618896197731" />
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400@0.0.2560.1400" timestamp="1619022217460" />
     <state x="1110" y="491" key="svn.repositoryBrowser" timestamp="1617785467266">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

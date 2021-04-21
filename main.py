@@ -200,7 +200,7 @@ def roles():
 @login_required
 def degrad():
     global lastcheck
-    if ((datetime.datetime.now() - lastcheck).seconds) >= 60:
+    if (datetime.datetime.now() - lastcheck).seconds >= 60:
         check_new_videos()
         lastcheck = datetime.datetime.now()
     db_sess = db_session.create_session()
@@ -216,6 +216,33 @@ def not_found(error):
 @tco.errorhandler(401)
 def not_authorized(error):
     return make_response('Только авторизированные пользователи могут быть здесь!', 401)
+
+
+@tco.route('/api/news')
+def get_news():
+    db_sess = db_session.create_session()
+    news = db_sess.query(News).all()
+    return jsonify(
+        {
+            'news':
+                [item.to_dict(only=('title', 'content', 'user.name'))
+                 for item in news]
+        }
+    )
+
+
+@tco.route('/api/news/<int:news_id>', methods=['GET'])
+def get_one_news(news_id):
+    db_sess = db_session.create_session()
+    news = db_sess.query(News).get(news_id)
+    if not news:
+        return jsonify({'error': 'Not found'})
+    return jsonify(
+        {
+            'news': news.to_dict(only=(
+                'title', 'content', 'user_id', 'is_private'))
+        }
+    )
 
 
 if __name__ == '__main__':
