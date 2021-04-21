@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>TCO'шный деград</title>
+    <link rel="shortcut icon" href="/static/img/icon.png" type="image/png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
@@ -61,11 +62,13 @@
     </header>
     <div class="container">
         {% for video in videos %}
-            <div class="col-12">
-                <div class="thumb-wrap" style="text-align: center; margin-top: 20px;">
-                    <iframe src="{{video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-12">
+                    <div class="thumb-wrap" style="text-align: center; margin-top: 20px;">
+                        <iframe src="{{video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
-            </div>
+            </div class="row">
         {% endfor %}
     </div>
 

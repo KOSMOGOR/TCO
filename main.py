@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, make_response, session, request, jsonify
+from flask.blueprints import Blueprint
 from werkzeug.exceptions import abort
 from data import db_session, news_api
 from data.login_form import LoginForm
@@ -19,6 +20,8 @@ lastcheck = datetime.datetime.now()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
+#app.config['SERVER_NAME'] = 'kosmogor.xyz'
+tco = Blueprint('tco', __name__)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -26,24 +29,28 @@ login_manager.init_app(app)
 def check_new_videos():
     db_sess = db_session.create_session()
     res = requests.get('https://www.youtube.com/feeds/videos.xml?channel_id=UC_yvFLQQcIrrQa3eSF7VsEw').text
-    d = dict(xmltodict.parse(res))['feed']['entry']
+    rssvideos = [dict(x)['id'].split(':')[-1] for x in dict(xmltodict.parse(res))['feed']['entry']]
     videos = [x.yt_id for x in db_sess.query(Yt)]
-    for i in d[::-1]:
-        link = dict(i)['id'].split(':')[-1]
+    for link in rssvideos[::-1]:
         if link not in videos:
             video = Yt(yt_id=link)
             db_sess.add(video)
+            db_sess.commit()
+    for link in videos:
+        if link not in rssvideos:
+            db_sess.query(Yt).filter(Yt.yt_id == link).delete()
             db_sess.commit()
 
 
 def main():
     db_session.global_init("db/blogs.db")
     check_new_videos()
+    app.register_blueprint(tco)
     app.register_blueprint(news_api.blueprint)
     app.run()
 
 
-@app.route("/")
+@tco.route("/")
 def index():
     db_sess = db_session.create_session()
     news = db_sess.query(News).filter(News.is_private != True)
@@ -55,7 +62,7 @@ def index():
     return render_template("index.html", news=news)
 
 
-@app.route('/register', methods=['GET', 'POST'])
+@tco.route('/register', methods=['GET', 'POST'])
 def reqister():
     form = RegisterForm()
     if form.validate_on_submit():
@@ -80,7 +87,7 @@ def reqister():
     return render_template('register.html', title='Регистрация', form=form)
 
 
-@app.route("/session_test")
+@tco.route("/session_test")
 def session_test():
     visits_count = session.get('visits_count', 0)
     session['visits_count'] = visits_count + 1
@@ -94,7 +101,7 @@ def load_user(user_id):
     return db_sess.query(User).get(user_id)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@tco.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -109,14 +116,14 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
-@app.route('/logout')
+@tco.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect("/")
 
 
-@app.route('/news',  methods=['GET', 'POST'])
+@tco.route('/news',  methods=['GET', 'POST'])
 @login_required
 def add_news():
     form = NewsForm()
@@ -134,7 +141,7 @@ def add_news():
                            form=form)
 
 
-@app.route('/news/<int:id>', methods=['GET', 'POST'])
+@tco.route('/news/<int:id>', methods=['GET', 'POST'])
 @login_required
 def edit_news(id):
     form = NewsForm()
@@ -168,7 +175,7 @@ def edit_news(id):
                            )
 
 
-@app.route('/news_delete/<int:id>', methods=['GET', 'POST'])
+@tco.route('/news_delete/<int:id>', methods=['GET', 'POST'])
 @login_required
 def news_delete(id):
     db_sess = db_session.create_session()
@@ -183,13 +190,13 @@ def news_delete(id):
     return redirect('/')
 
 
-@app.route('/dsroles')
+@tco.route('/dsroles')
 @login_required
 def roles():
     return render_template('roles_and_instructions.html', roles=dsroles)
 
 
-@app.route('/tcodergad')
+@tco.route('/tcodergad')
 @login_required
 def degrad():
     global lastcheck
@@ -197,18 +204,16 @@ def degrad():
         check_new_videos()
         lastcheck = datetime.datetime.now()
     db_sess = db_session.create_session()
-    res = requests.get('https://www.youtube.com/feeds/videos.xml?channel_id=UC_yvFLQQcIrrQa3eSF7VsEw').text
-    d = dict(xmltodict.parse(res))['feed']['entry']
     videos = [f'https://www.youtube.com/embed/{x.yt_id}' for x in db_sess.query(Yt)[::-1]]
     return render_template('degrad.html', videos=videos)
 
 
-@app.errorhandler(404)
+@tco.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 
-@app.errorhandler(401)
+@tco.errorhandler(401)
 def not_authorized(error):
     return make_response('Только авторизированные пользователи могут быть здесь!', 401)
 
