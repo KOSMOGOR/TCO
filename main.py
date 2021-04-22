@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, make_response, session, request, jsonify
+from flask import Flask, render_template, redirect, make_response, session, request, jsonify, send_from_directory
 from flask.blueprints import Blueprint
 from werkzeug.exceptions import abort
 from data import db_session, news_api
@@ -18,10 +18,10 @@ with open('db/roles.json', encoding='UTF-8') as f:
     dsroles = json.load(f)['roles']
 lastcheck = datetime.datetime.now()
 
-app = Flask(__name__)
+app = Flask(__name__, subdomain_matching=True)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
-#app.config['SERVER_NAME'] = 'kosmogor.xyz'
-tco = Blueprint('tco', __name__)
+app.config['SERVER_NAME'] = 'kosmogor.xyz:5000'
+tco = Blueprint('tco', __name__, subdomain='tco')
 login_manager = LoginManager()
 login_manager.init_app(app)
 
@@ -47,7 +47,12 @@ def main():
     check_new_videos()
     app.register_blueprint(tco)
     app.register_blueprint(news_api.blueprint)
-    app.run()
+    app.run(host='0.0.0.0', port='5000')
+
+
+@tco.route('/static/<path:path>')
+def send_js(path):
+    return send_from_directory('static', path)
 
 
 @tco.route("/")
@@ -215,7 +220,7 @@ def not_found(error):
 
 @tco.errorhandler(401)
 def not_authorized(error):
-    return make_response('Только авторизированные пользователи могут быть здесь!', 401)
+    return render_template('not_authorized.html')
 
 
 @tco.route('/api/news')
